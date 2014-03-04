@@ -15,7 +15,19 @@ class WallController < ApplicationController
   end
 
   def edit
-    @post_edit = post.find(params[:id])
+    @post_edit = Post.find(params[:id])
+  end
+
+  def edit_complete
+    p = Post.find(params[:id])
+    p.name = params[:writer_edit]
+    p.content = params[:content_edit]
+    if p.save
+      redirect_to "wall/posts"
+    else
+      flash[:alert] = p.errors[:content][0]
+      redirect_to :back
+    end
   end
 
   def posts
