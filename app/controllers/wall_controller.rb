@@ -16,6 +16,7 @@ class WallController < ApplicationController
 
   def edit
     @post_edit = post.find(params[:id])
+  end
 
   def posts
     @posts = Post.all
