@@ -23,7 +23,7 @@ class WallController < ApplicationController
     p.name = params[:writer_edit]
     p.content = params[:content_edit]
     if p.save
-      redirect_to "wall/posts"
+      redirect_to "/wall/posts"
     else
       flash[:alert] = p.errors[:content][0]
       redirect_to :back
