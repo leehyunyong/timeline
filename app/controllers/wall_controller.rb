@@ -41,6 +41,9 @@ class WallController < ApplicationController
     redirect_to "/wall/posts"
   end
 
+  def write_comment
+    @post_comment - Post.find(params[:id])
+
   def posts
     @posts = Post.all
   end
